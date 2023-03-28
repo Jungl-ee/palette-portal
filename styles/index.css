@@ -1,0 +1,65 @@
+body {
+    color: white;
+    background: url(../assets/mainpage_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    overflow-y: auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+    height: 100px;
+    position: fixed;
+    top: 0;
+    left: 1rem;
+    right: 1rem;
+}
+
+.logo {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 0;
+    transition: 0.15s;
+    cursor: pointer;
+    line-height: 3rem;
+}
+
+.logo:hover {
+    text-shadow: 0 0 1.5rem white;
+}
+
+.btn-rw {
+    display: flex;
+    gap: 24px;
+}
+
+#login-btn,
+#signup-btn {
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    white-space: nowrap;
+    font-size: 1rem;
+    font-weight: bold;
+    box-shadow: 0 0 1rem white;
+    transition: 0.15s;
+    cursor: pointer;
+}
+
+#login-btn:hover,
+#signup-btn:hover {
+    color: white;
+    background-color: black;
+    box-shadow: 0 0 1.5rem #7851A9;
+    transition: 0.15s;
+}
+
+#login-btn:active,
+#signup-btn:active {
+    transform: translateY(1px);
+}
