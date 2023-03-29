@@ -6,6 +6,7 @@ body {
     background-attachment: fixed;
     background-position: center;
     overflow-y: auto;
+    padding-top: 100px;
 }
 
 header {
@@ -16,14 +17,16 @@ header {
     height: 100px;
     position: fixed;
     top: 0;
-    left: 1rem;
-    right: 1rem;
+    left: 0;
+    right: 0;
+    padding: 0 1rem;
 }
 
 .logo {
     font-size: 3rem;
-    font-weight: bold;
+    font-weight: 600;
     margin: 0;
+    text-shadow: 0 0 0.5rem black;
     transition: 0.15s;
     cursor: pointer;
     line-height: 3rem;
@@ -62,4 +65,26 @@ header {
 #login-btn:active,
 #signup-btn:active {
     transform: translateY(1px);
+}
+
+.display-text {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.art-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    padding: 4rem;
+}
+
+.art {
+    background: url(../assets/pexels-photo-1585325.jpeg);
+    background-position: center;
+    background-size: cover;
+    height: 300px;
+    border-radius: 10px;
+    border: 0.75rem solid #C287E8;
+    box-shadow: 0 0 2rem #C287E8;
 }
