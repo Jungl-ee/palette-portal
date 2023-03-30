@@ -1,6 +1,7 @@
 const background = document.getElementById('background');
 const size = 50;
-let rows, columns;
+let rows = Math.floor(window.innerHeight / size);
+let columns = Math.floor(window.innerWidth / size);
 
 let colors = [
     '#FFFAFA',
@@ -14,27 +15,28 @@ let colors = [
     '#4B0082',
     '#1B1B1B'
 ]
-
 colors = colors.sort((a, b) => 0.5 - Math.random());
 
-let count = -1;
-
+let count = 0;
 const handleOnClick = index => {
     count += 1;
-
+    
     anime({
         targets: '.tile',
         backgroundColor: colors[count % (colors.length)],
-        delay: anime.stagger(50, {
+        delay: anime.stagger(75, {
             grid: [columns, rows],
             from: index
         })
     })
+    clearInterval(click);
+    click = setInterval(randomClick, 10000);
 }
 
 function createTile(index) {
     const tile = document.createElement('div');
     tile.classList.add('tile');
+    tile.style.backgroundColor = colors[count % colors.length];
     tile.onclick = e => handleOnClick(index);
     return tile;
 }
@@ -47,15 +49,20 @@ function createTiles(number) {
 
 function createGrid() {
     background.innerHTML = "";
-
+    
     rows = Math.floor(window.innerHeight / size);
     columns = Math.floor(window.innerWidth / size);
-
+    
     background.style.setProperty('--rows', rows);
     background.style.setProperty('--columns', columns);
     
     createTiles(rows*columns);
 }
 
+const randomClick = () => {
+    handleOnClick(Math.floor(Math.random()*rows*columns) + 1);
+}
+
 window.onload = createGrid;
 window.onresize = createGrid;
+let click = setInterval(randomClick, 10000);
