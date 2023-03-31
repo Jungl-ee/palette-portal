@@ -17,12 +17,12 @@ form{
   top: 50%;
   left: 50%;
   width: min(400px, 70vw);
-  height: max(300px, 70vh);
-  border-radius: 8px;
-  backdrop-filter: blur(5px);
+  height: max(350px, 70vh);
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
   background-color: rgba(255, 255, 255, 0.3);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.585);
-  padding: 3rem;
+  padding: 2rem 3rem;
   border: 1px solid rgba(0, 0, 0, 0.4);
   overflow-y: auto;
 }
@@ -45,7 +45,7 @@ form input{
   width: 100%;  
   padding: 1rem;
   background-color: rgba(225, 225, 225, 0.4);
-  border: none;
+  border: 1px solid transparent;
   border-radius: 5px;
   margin-top: 0.5rem;
   font-size: 1rem;
@@ -54,9 +54,19 @@ form input{
   box-sizing: border-box;
   box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.4);
   color: rgb(28, 28, 28);
+  box-sizing: border-box;
+  transition: 0.15s;
 }
 
-form button{
+form input:hover {
+  box-shadow: 0 0 0.25rem white;
+}
+
+form input:focus {
+  box-shadow: 0 0 0.5rem white;
+}
+
+.login-btn {
   border: none;
   background-color: black;
   color: white;
@@ -67,16 +77,19 @@ form button{
   font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
+  white-space: nowrap;
   transition: 0.15s;
 }
 
-form button:hover {
+.login-btn:hover {
+  color: greenyellow;
+  text-shadow: 0 0 1rem greenyellow;
   box-shadow: 0 0 0.25rem black;
   transition: 0.15s;
 }
 
-form button:active,
-.social div:active {
+.login-btn:active,
+.social button:active {
   transform: translateY(3px);
 }
 
@@ -84,23 +97,27 @@ form button:active,
   margin-top: 2rem;
   display: flex;
   gap: 2rem;
+  justify-content: center;
 }
-.social div{
+.social button{
   font-size: 1rem;
   flex: 1;
   background-color: white;
   color: black;
+  border: none;
   border-radius: 3px;
   text-align: center;
   box-shadow: 0 0 0.2rem black;
-  padding: 0.5rem;
+  padding: 0.75rem;
   transition: 0.15s;
   cursor: pointer;;
+  font-weight: 500;
+  white-space: nowrap;
 }
-.social div:hover{
-  background-color: rgba(255,255,255,0.8);
-  box-shadow: 0 0 0.25rem black;
-  transition: 0.15s;
+
+.social a {
+  text-decoration: none;
+  flex: 1;
 }
 
 @keyframes rotate {
@@ -109,10 +126,29 @@ form button:active,
 	}
 }
 
+.google-icon {
+  background-image: url(../assets/search.png);
+  width: 1.2rem;
+  height: 1.2rem;
+  background-size: cover;
+}
+
+.back-icon {
+  background-image: url(../assets/back\ icon.png);
+  width: 1.2rem;
+  height: 1.2rem;
+  background-size: cover;
+}
+
 .rainbow {
 	position: relative;
 	z-index: 0;
 	overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
 }
 
 .rainbow::before {
@@ -120,10 +156,10 @@ form button:active,
   content: '';
   position: absolute;
   z-index: -2;
-  left: -15%;
-  top: -200%;
-  width: 125%;
-  height: 500%;
+  left: -25%;
+  top: -250%;
+  width: 150%;
+  height: 600%;
   background-color: transparent;
   background-repeat: no-repeat;
   background-size: 50% 50%, 50% 50%;
@@ -134,7 +170,7 @@ form button:active,
 }
 
 .rainbow:hover::before {
-  animation: rotate 4s linear infinite;
+  animation: rotate 6s linear infinite;
   display: block;
 }
 
@@ -177,7 +213,7 @@ form button:active,
 .dots span {
   position: absolute;
   border-radius: 50%;
-  background-image: linear-gradient(45deg, #ff930f, #fff95b);
+  background-image: linear-gradient(45deg, var(--color1), var(--color2));
   border-radius: 38% 62% 55% 45% / 32% 53% 47% 68%;
   animation: vawe 7s linear infinite;
 }
@@ -204,8 +240,8 @@ form button:active,
 .dots span:nth-child(4) {
   bottom: 10%;
   left: 20%;
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   border-radius: 38% 62% 55% 45% / 52% 53% 47% 48%;
 }
 .dots span:nth-child(5) {

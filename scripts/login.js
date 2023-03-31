@@ -1,4 +1,5 @@
 const background = document.getElementById('background');
+const dots = document.querySelector('.dots');
 const size = 50;
 let rows = Math.floor(window.innerHeight / size);
 let columns = Math.floor(window.innerWidth / size);
@@ -17,6 +18,15 @@ let colors = [
     '#1B1B1B'
 ]
 colors = colors.sort((a, b) => 0.5 - Math.random());
+
+const gradients = [
+    ['#ff930f', '#fff95b'],
+    ['#595cff', '#c6f8ff'],
+    ['#696eff', '#f8acff'],
+    ['#f7ba2c', '#ea5459'],
+    ['#f3f520', '#59d102'],
+    ['#8711c1', '#2472fc']
+]
 
 let count = 0;
 const handleOnClick = index => {
@@ -62,8 +72,19 @@ function createGrid() {
 
 const randomClick = () => {
     handleOnClick(Math.floor(Math.random()*rows*columns) + 1);
+    // change bubble color after every n random clicks
+    if (count % colors.length == 0)
+        setBubbleColor(gradients);
+}
+
+const setBubbleColor = gradients => {
+    let gradient = gradients[Math.floor(Math.random()*gradients.length)]
+    dots.style.setProperty('--color1', gradient[0]);
+    dots.style.setProperty('--color2', gradient[1]);
 }
 
 window.onload = createGrid;
 window.onresize = createGrid;
 let click = setInterval(randomClick, timer);
+
+setBubbleColor(gradients);
