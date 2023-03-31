@@ -30,7 +30,7 @@ const handleOnClick = index => {
         })
     })
     clearInterval(click);
-    click = setInterval(randomClick, 10000);
+    click = setInterval(randomClick, 5000);
 }
 
 function createTile(index) {
@@ -65,4 +65,4 @@ const randomClick = () => {
 
 window.onload = createGrid;
 window.onresize = createGrid;
-let click = setInterval(randomClick, 10000);
+let click = setInterval(randomClick, 5000);
