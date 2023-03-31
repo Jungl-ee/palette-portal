@@ -11,10 +11,8 @@ let colors = [
     '#FF8000',
     '#FFD700',
     '#C0FF00',
-    '#00CCFF',
     '#0000FF',
-    '#FF1493',
-    '#4B0082',
+    '#D473D4',
     '#1B1B1B'
 ]
 colors = colors.sort((a, b) => 0.5 - Math.random());
@@ -23,7 +21,6 @@ const gradients = [
     ['#ff930f', '#fff95b'],
     ['#595cff', '#c6f8ff'],
     ['#696eff', '#f8acff'],
-    ['#f7ba2c', '#ea5459'],
     ['#f3f520', '#59d102'],
     ['#8711c1', '#2472fc']
 ]
