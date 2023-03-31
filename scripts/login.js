@@ -2,6 +2,7 @@ const background = document.getElementById('background');
 const size = 50;
 let rows = Math.floor(window.innerHeight / size);
 let columns = Math.floor(window.innerWidth / size);
+let timer = 7000;
 
 let colors = [
     '#FFFAFA',
@@ -30,7 +31,7 @@ const handleOnClick = index => {
         })
     })
     clearInterval(click);
-    click = setInterval(randomClick, 5000);
+    click = setInterval(randomClick, timer);
 }
 
 function createTile(index) {
@@ -65,4 +66,4 @@ const randomClick = () => {
 
 window.onload = createGrid;
 window.onresize = createGrid;
-let click = setInterval(randomClick, 5000);
+let click = setInterval(randomClick, timer);
