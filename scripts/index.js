@@ -19,7 +19,7 @@ let suggestions = [
     'renault',
     'remembrance'
 ];
-
+let toggle = false; // Toggle for search bar focus handeling
 // getting all required elements
 const searchWrapper = document.querySelector(".search-input");
 const inputBox = searchWrapper.querySelector("input");
@@ -36,24 +36,18 @@ inputBox.onkeyup = (e) => {
         });
         emptyArray = emptyArray.map((data) => {
             // passing return data inside li tag
-            return data = `<li>${data}</li>`;
+            // Added onclick handler to li tag
+            return data = `<li onclick="suggestionOnClickHandler(this)">${data}</li>`;
         });
         searchWrapper.classList.add("active"); //show autocomplete box
         showSuggestions(emptyArray);
-        let allList = suggBox.querySelectorAll("li");
-        for (let i = 0; i < allList.length; i++) {
-            //adding onclick attribute in all li tag
-            allList[i].setAttribute("onclick", "select(this)");
-        }
     } else {
         searchWrapper.classList.remove("active"); //hide autocomplete box
     }
 }
 
-function select(element) {
-    let selectData = element.textContent;
-    inputBox.value = selectData;
-    searchWrapper.classList.remove("active");
+function select(value) {
+
 }
 
 function showSuggestions(list) {
@@ -67,12 +61,22 @@ function showSuggestions(list) {
     suggBox.innerHTML = listData;
 }
 
-function hideBar() {
+function hideBar(element) {
+    if (toggle) {
+        // clicking anywhere on page tries to hide the search bar
+        // but not if toggle is true, sets toggle to false
+        toggle = false;
+        return;
+    }
+    // if toggle is false, hides the search bar
     searchWrapper.classList.remove("active");
 }
 
 function showBar() {
     searchWrapper.classList.add("active");
+    // Toggles on focus indicating that search bar was clicked by the user
+    toggle = true;
+
 }
 
 // Arts height adjust
@@ -101,3 +105,9 @@ images = images.sort((a, b) => 0.5 - Math.random());
 arts.forEach((art, i) => {
     art.style.backgroundImage = `url(${images[i]})`;
 })
+
+function suggestionOnClickHandler(element) {
+    // Set input box value to the clicked li element
+    inputBox.value = element.textContent;
+    searchWrapper.classList.remove("active");
+}
