@@ -11,13 +11,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../styles/general.css">
-    <link rel="stylesheet" href="../styles/login.css">
+    <link rel="stylesheet" href="./static/styles/general.css">
+    <link rel="stylesheet" href="./static/styles/login.css">
 
     <title> Palette Portal | Login </title>
 
     <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
 </head>
+
 <body>
     <div id="background"></div>
     <div class="dots">
@@ -28,26 +29,20 @@
         <span></span>
         <span></span>
     </div>
-
     <div class="form-container">
-        <div class="header">
-            <h1> P </h1>
-            <h1> A </h1>
-            <h1> L </h1>
-            <h1> E </h1>
-            <h1> T </h1>
-            <h1> T </h1>
-            <h1> E </h1>
-        </div>
+        <h3
+            style="width: fit-content; margin-left: auto; margin-right: auto; font-size: 2em; margin-top: 0%; margin-bottom: 0.5em; font-weight: 3rem;">
+            Pallete
+            Portal</h3>
         <form>
             <h3> Login </h3>
-    
+
             <label for="username">Username</label>
             <input type="text" placeholder="Email or Phone" id="username" required>
-    
+
             <label for="password">Password</label>
             <input type="password" placeholder="Password" id="password" required>
-    
+
             <button type="submit" class="login-btn">Log In</button>
             <div class="buttons-row">
                 <button type="button" class="google-btn">
@@ -56,22 +51,15 @@
                 </button>
                 <a href="index.html">
                     <button type="button" class="back-btn">
-                        <i class="back-icon"></i> 
+                        <i class="back-icon"></i>
                         <span> Go Back </span>
                     </button>
                 </a>
             </div>
         </form>
-        <div class="header">
-            <h1> P </h1>
-            <h1> O </h1>
-            <h1> R </h1>
-            <h1> T </h1>
-            <h1> A </h1>
-            <h1> L </h1>
-        </div>
     </div>
-    
-    <script src="../scripts/login.js"></script>
+
+    <script src="./scripts/login.js"></script>
 </body>
+
 </html>
