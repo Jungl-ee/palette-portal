@@ -34,8 +34,6 @@ function hexToRGB(hexVal) {
     let green = parseInt(hex.substring(2, 4), 16);
     let blue = parseInt(hex.substring(4, 6), 16);
 
-    console.log(`rgb(${red}, ${green}, ${blue})`);
-
     red = 255 - red;
     green = 255 - green;
     blue = 255 - blue;
