@@ -1,6 +1,6 @@
 // Typer
-window.ityped.init(document.querySelector('.display-text'),{
-    strings: ['Create','Buy','Sell', 'Explore'],
+window.ityped.init(document.querySelector('.display-text'), {
+    strings: ['Create', 'Buy', 'Sell', 'Explore'],
     typeSpeed: 150,
     backSpeed: 200,
     backDelay: 3000,
@@ -26,15 +26,15 @@ const inputBox = searchWrapper.querySelector("input");
 const suggBox = searchWrapper.querySelector(".autocom-box");
 
 // if user press any key and release
-inputBox.onkeyup = (e)=>{
+inputBox.onkeyup = (e) => {
     let userData = e.target.value; //user enetered data
     let emptyArray = [];
     if (userData) {
-        emptyArray = suggestions.filter((data)=>{
+        emptyArray = suggestions.filter((data) => {
             //filtering array value and user characters to lowercase and return only those words which are start with user enetered chars
             return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase());
         });
-        emptyArray = emptyArray.map((data)=>{
+        emptyArray = emptyArray.map((data) => {
             // passing return data inside li tag
             return data = `<li>${data}</li>`;
         });
@@ -45,24 +45,24 @@ inputBox.onkeyup = (e)=>{
             //adding onclick attribute in all li tag
             allList[i].setAttribute("onclick", "select(this)");
         }
-    }else{
+    } else {
         searchWrapper.classList.remove("active"); //hide autocomplete box
     }
 }
 
-function select(element){
+function select(element) {
     let selectData = element.textContent;
     inputBox.value = selectData;
     searchWrapper.classList.remove("active");
 }
 
-function showSuggestions(list){
+function showSuggestions(list) {
     let listData;
-    if(!list.length){
+    if (!list.length) {
         userValue = inputBox.value;
         listData = `<li>${userValue}</li>`;
-    }else{
-      listData = list.join('');
+    } else {
+        listData = list.join('');
     }
     suggBox.innerHTML = listData;
 }
@@ -91,7 +91,7 @@ addEventListener("resize", () => {
 // Image inserter
 let images = [];
 for (let i = 1; i <= 6; i++) {
-    images.push(`../assets/img${i}.jpg`)
+    images.push(`../static/assets/img${i}.jpg`)
 }
 
 // shuffles images
