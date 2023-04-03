@@ -41,13 +41,20 @@ inputBox.onkeyup = (e) => {
         });
         searchWrapper.classList.add("active"); //show autocomplete box
         showSuggestions(emptyArray);
+        let allList = suggBox.querySelectorAll("li");
+        for (let i = 0; i < allList.length; i++) {
+            //adding onclick attribute in all li tag
+            allList[i].setAttribute("onclick", "select(this)");
+        }
     } else {
         searchWrapper.classList.remove("active"); //hide autocomplete box
     }
 }
 
-function select(value) {
-
+function select(element) {
+    let selectData = element.textContent;
+    inputBox.value = selectData;
+    searchWrapper.classList.remove("active");
 }
 
 function showSuggestions(list) {
