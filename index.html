@@ -19,28 +19,25 @@
     <script src="https://unpkg.com/ityped@1.0.3"></script>
 </head>
 
-<body onclick="hideBar(this)">
+<body>
     <header>
         <h1 class="logo"> Palette Portal </h1>
         <div class="btn-rw">
             <a href="login.html">
                 <button id="login-btn"> Login </button>
             </a>
-            <a href="signup.html">
-                <button id="signup-btn"> Sign Up </button>
-            </a>
+            <button id="signup-btn"> Sign Up </button>
         </div>
     </header>
 
     <div class="display-text-container">
         <h2><span class="display-text"></span></h2>
         <div class="search-input">
-            <input class="searchbar" type="text" placeholder="Search..." onclick="showBar()">
             <input class="searchbar" type="text" placeholder="Search...">
             <div class="autocom-box">
-                <!-- here list are inserted from javascript -->
+              <!-- here list are inserted from javascript -->
             </div>
-        </div>
+          </div>
     </div>
 
     <main class="art-preview">
@@ -54,5 +51,4 @@
 
     <script src="scripts/index.js"></script>
 </body>
-
 </html>

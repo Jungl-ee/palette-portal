@@ -13,7 +13,7 @@ body {
 
 .form-container {
   position: absolute;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%,-50%);
   top: 50%;
   left: 50%;
   display: flex;
@@ -35,7 +35,7 @@ body {
   text-shadow: 0 0 4px white;
 }
 
-form {
+form{
   width: min(400px, 70vw);
   height: max(200px, 67vh);
   border-radius: 16px;
@@ -56,15 +56,14 @@ form h2{
   text-align: center;
 }
 
-form label {
+form label{
   display: block;
   margin-top: 1.5rem;
   font-size: 1.25rem;
   font-weight: 600;
 }
-
-form input {
-  width: 100%;
+form input{
+  width: 100%;  
   padding: 1rem;
   background-color: rgba(225, 225, 225, 0.4);
   border: 1px solid transparent;
@@ -92,7 +91,6 @@ form input:focus {
   0% {
     background-position: 0% 0;
   }
-
   100% {
     background-position: 200% 0;
   }
@@ -127,7 +125,7 @@ form input:focus {
   transform: translateY(3px);
 }
 
-.buttons-row {
+.buttons-row{
   margin-top: 2rem;
   margin-bottom: 1rem;
   display: flex;
@@ -142,9 +140,9 @@ form input:focus {
 }
 
 @keyframes rotate {
-  100% {
-    transform: rotate(1turn);
-  }
+	100% {
+		transform: rotate(1turn);
+	}
 }
 
 .google-icon {
@@ -164,12 +162,12 @@ form input:focus {
 .google-btn,
 .back-btn {
   position: relative;
-  overflow: hidden;
+	overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
-  z-index: 0;
+	z-index: 0;
   width: 100%;
   font-size: 1rem;
   flex: 1;
@@ -227,7 +225,7 @@ form input:focus {
 }
 
 .back-btn {
-  background: linear-gradient(to right, #f3f520, #f9bc2c, #f3f520);
+  background: linear-gradient(to right, #f3f520,#f9bc2c, #f3f520);
   background-size: 200% 200%;
 }
 
@@ -245,15 +243,12 @@ form input:focus {
   20% {
     border-radius: 45% 55% 62% 38% / 53% 51% 49% 47%;
   }
-
   40% {
     border-radius: 45% 55% 49% 51% / 36% 51% 49% 64%;
   }
-
   60% {
     border-radius: 60% 40% 57% 43% / 47% 62% 38% 53%;
   }
-
   80% {
     border-radius: 60% 40% 32% 68% / 38% 36% 64% 62%;
   }
@@ -267,7 +262,6 @@ form input:focus {
   bottom: 0;
   left: 0;
 }
-
 .dots span {
   position: absolute;
   border-radius: 50%;
@@ -275,14 +269,12 @@ form input:focus {
   border-radius: 38% 62% 55% 45% / 32% 53% 47% 68%;
   animation: vawe 5s linear infinite;
 }
-
 .dots span:nth-child(1) {
   top: 1%;
   right: 1%;
   width: 300px;
   height: 300px;
 }
-
 .dots span:nth-child(2) {
   top: 5%;
   left: 5%;
@@ -290,7 +282,6 @@ form input:focus {
   height: 200px;
   border-radius: 38% 62% 33% 67% / 60% 53% 47% 40%;
 }
-
 .dots span:nth-child(3) {
   right: 20%;
   bottom: 5%;
@@ -298,7 +289,6 @@ form input:focus {
   height: 150px;
   border-radius: 38% 62% 55% 45% / 52% 53% 47% 48%;
 }
-
 .dots span:nth-child(4) {
   bottom: 10%;
   left: 20%;
@@ -306,7 +296,6 @@ form input:focus {
   height: 100px;
   border-radius: 38% 62% 55% 45% / 52% 53% 47% 48%;
 }
-
 .dots span:nth-child(5) {
   right: 50%;
   bottom: 50%;
@@ -315,7 +304,6 @@ form input:focus {
   border-radius: 38% 62% 55% 45% / 52% 53% 47% 48%;
   transform: translate(50%, 50%);
 }
-
 .dots span:nth-child(6) {
   left: 10%;
   bottom: 30%;

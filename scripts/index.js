@@ -19,7 +19,7 @@ let suggestions = [
     'renault',
     'remembrance'
 ];
-let toggle = false; // Toggle for search bar focus handeling
+
 // getting all required elements
 const searchWrapper = document.querySelector(".search-input");
 const inputBox = searchWrapper.querySelector("input");
@@ -62,7 +62,7 @@ function showSuggestions(list) {
     if (!list.length) {
         userValue = inputBox.value;
         listData = `<li>${userValue}</li>`;
-    }else{
+    } else {
         listData = list.join('');
     }
     suggBox.innerHTML = listData;
@@ -98,7 +98,7 @@ addEventListener("resize", () => {
 // Image inserter
 let images = [];
 for (let i = 1; i <= 6; i++) {
-    images.push(`../static/assets/img${i}.jpg`)
+    images.push(`../assets/img${i}.jpg`)
 }
 
 // shuffles images
@@ -107,9 +107,3 @@ images = images.sort((a, b) => 0.5 - Math.random());
 arts.forEach((art, i) => {
     art.style.backgroundImage = `url(${images[i]})`;
 })
-
-function suggestionOnClickHandler(element) {
-    // Set input box value to the clicked li element
-    inputBox.value = element.textContent;
-    searchWrapper.classList.remove("active");
-}
