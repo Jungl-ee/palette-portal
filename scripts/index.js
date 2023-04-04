@@ -26,7 +26,8 @@ const inputBox = searchWrapper.querySelector("input");
 const suggBox = searchWrapper.querySelector(".autocom-box");
 
 // if user press any key and release
-inputBox.onkeyup = (e)=>{
+
+function suggest(e) {
     let userData = e.target.value; //user enetered data
     let emptyArray = [];
     if (userData) {
@@ -36,7 +37,7 @@ inputBox.onkeyup = (e)=>{
         });
         emptyArray = emptyArray.map((data)=>{
             // passing return data inside li tag
-            return data = `<li>${data}</li>`;
+            return data = `<li class='suggestion'>${data}</li>`;
         });
         searchWrapper.classList.add("active"); //show autocomplete box
         showSuggestions(emptyArray);
@@ -62,17 +63,23 @@ function showSuggestions(list){
         userValue = inputBox.value;
         listData = `<li>${userValue}</li>`;
     }else{
-      listData = list.join('');
+        listData = list.join('');
     }
     suggBox.innerHTML = listData;
 }
 
-function hideBar() {
-    searchWrapper.classList.remove("active");
+inputBox.onkeyup = e => {
+    suggest(e);
 }
 
-function showBar() {
-    searchWrapper.classList.add("active");
+inputBox.onfocus = e => {
+    suggest(e);
+}
+
+inputBox.onblur = e => {
+    const selected = e.explicitOriginalTarget;
+    if (selected.className == 'suggestion')
+        select(selected);
 }
 
 // Arts height adjust
@@ -96,7 +103,6 @@ for (let i = 1; i <= 6; i++) {
 
 // shuffles images
 images = images.sort((a, b) => 0.5 - Math.random());
-
 
 arts.forEach((art, i) => {
     art.style.backgroundImage = `url(${images[i]})`;
