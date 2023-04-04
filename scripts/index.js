@@ -26,7 +26,8 @@ const inputBox = searchWrapper.querySelector("input");
 const suggBox = searchWrapper.querySelector(".autocom-box");
 
 // if user press any key and release
-inputBox.onkeyup = (e) => {
+
+function suggest(e) {
     let userData = e.target.value; //user enetered data
     let emptyArray = [];
     if (userData) {
@@ -36,8 +37,7 @@ inputBox.onkeyup = (e) => {
         });
         emptyArray = emptyArray.map((data) => {
             // passing return data inside li tag
-            // Added onclick handler to li tag
-            return data = `<li onclick="suggestionOnClickHandler(this)">${data}</li>`;
+            return data = `<li class='suggestion'>${data}</li>`;
         });
         searchWrapper.classList.add("active"); //show autocomplete box
         showSuggestions(emptyArray);
@@ -62,28 +62,24 @@ function showSuggestions(list) {
     if (!list.length) {
         userValue = inputBox.value;
         listData = `<li>${userValue}</li>`;
-    } else {
+    }else{
         listData = list.join('');
     }
     suggBox.innerHTML = listData;
 }
 
-function hideBar(element) {
-    if (toggle) {
-        // clicking anywhere on page tries to hide the search bar
-        // but not if toggle is true, sets toggle to false
-        toggle = false;
-        return;
-    }
-    // if toggle is false, hides the search bar
-    searchWrapper.classList.remove("active");
+inputBox.onkeyup = e => {
+    suggest(e);
 }
 
-function showBar() {
-    searchWrapper.classList.add("active");
-    // Toggles on focus indicating that search bar was clicked by the user
-    toggle = true;
+inputBox.onfocus = e => {
+    suggest(e);
+}
 
+inputBox.onblur = e => {
+    const selected = e.explicitOriginalTarget;
+    if (selected.className == 'suggestion')
+        select(selected);
 }
 
 // Arts height adjust
@@ -107,7 +103,6 @@ for (let i = 1; i <= 6; i++) {
 
 // shuffles images
 images = images.sort((a, b) => 0.5 - Math.random());
-
 
 arts.forEach((art, i) => {
     art.style.backgroundImage = `url(${images[i]})`;

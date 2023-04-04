@@ -98,8 +98,7 @@ const setBubbleColor = gradients => {
     dots.style.setProperty('--color2', gradient[1]);
 }
 
-window.onload = createGrid;
+createGrid();
+setBubbleColor(gradients);
 window.onresize = createGrid;
 let click = setInterval(randomClick, timer);
-
-setBubbleColor(gradients);
